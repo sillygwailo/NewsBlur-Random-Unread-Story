@@ -1,0 +1,8 @@
+{
+  "name": "NewsBlurRandomUnreadStory",
+  "author": "Richard Eriksson <richard@justagwailo.com>",
+  "dependencies": {
+    "request": "2.34.0"
+  },
+  "license": "MIT"
+}
