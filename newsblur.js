@@ -3,6 +3,7 @@ var r = require('request').defaults({jar: true});
 var Shuffle = require('shuffle');
 var argv = require('minimist')(process.argv.slice(2));
 var options = require(__dirname + '/newsblur_options.js');
+var open = require('open');
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -92,11 +93,21 @@ r.post(login_options, function login(error, response, body) {
       random_stories = stories_deck.drawRandom(num_stories);
       if (Array.isArray(random_stories)) {
         random_stories.forEach(function (story, index, array) {
-          console.log(story.story_permalink);
+          if (argv['b'] == true) {
+            open(story.story_permalink);
+          }
+          else {
+            console.log(story.story_permalink);
+          }
         });
       }
       else if (typeof(random_stories) != 'undefined') {
-        console.log(random_stories.story_permalink);
+        if (argv['b'] == true) {
+          open(random_stories.story_permalink)
+        }
+        else {
+          console.log(random_stories.story_permalink);
+        }
       }
     });
   }

@@ -4,7 +4,8 @@
   "dependencies": {
     "request": "2.34.0",
     "minimist": "0.2.0",
-    "shuffle": "0.2.1"
+    "shuffle": "0.2.1".
+    "open": "0.0.5"
   },
   "license": "MIT"
 }
